@@ -5,6 +5,7 @@ import express from "express";
 import mongoose from "mongoose";
 import authRoute from './routes/auth.js';
 import usersRoute from "./routes/users.js";
+import hotelsRoute from "./routes/hotel.js";
 
 
 const port = process.env.PORT || 5000 ;
@@ -40,6 +41,7 @@ app.use(express.json());
 // Routes 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
+app.use("/api/hotels", hotelsRoute);
 
 
 

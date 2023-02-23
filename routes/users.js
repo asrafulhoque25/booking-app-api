@@ -1,6 +1,6 @@
 import express from "express";
 import { deleteUser, getUser, getUsers, updateUser } from "../controllers/usersController.js";
-import { verifyAdmin, verifyUser } from "../middlewares/verifyAuth.js";
+import { verifyAuth } from "../middlewares/verifyAuth.js";
 
 const router = express.Router();
 
@@ -17,15 +17,15 @@ const router = express.Router();
 // })
 
 //UPDATE
-router.put("/:id", verifyUser, updateUser);
+router.put("/:id", verifyAuth, updateUser);
 
 //DELETE
-router.delete("/:id", verifyUser, deleteUser);
+router.delete("/:id", verifyAuth, deleteUser);
 
 //GET
-router.get("/:id", verifyUser, getUser);
+router.get("/:id", verifyAuth, getUser);
 
 //GET ALL
-router.get("/", verifyAdmin, getUsers);
+router.get("/", verifyAuth, getUsers);
 
 export default router;
