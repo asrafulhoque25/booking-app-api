@@ -3,7 +3,7 @@ import Room from "../models/Room.js";
 
 
 export const createHotel = async (req, res, next) => {
-  
+
     const newHotel = new Hotel(req.body);
 
     try {
@@ -48,7 +48,7 @@ export const getHotels = async (req, res, next) => {
     try {
         const hotels = await Hotel.find({
             ...others,
-            cheapestPrice: { $gt: min || 1, $lt: max || 9999 },
+            cheapestPrice: { $gt: min || 1, $lte: max || 9999 },
         }).limit(parseInt(req.query.limit));
         res.status(200).json(hotels);
     } catch (err) {

@@ -1,3 +1,4 @@
+
 import express from "express";
 import { countByCity, countByType, createHotel, deleteHotel, getHotel, getHotelRooms, getHotels, updateHotel } from "../controllers/hotelController.js";
 
