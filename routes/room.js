@@ -4,15 +4,15 @@ import { verifyAuth } from "../middlewares/verifyAuth.js";
 
 const router = express.Router();
 //CREATE
-router.post("/:hotelid", verifyAuth, createRoom);
+router.post("/:hotelid", createRoom);
 
 //UPDATE
 router.put("/availability/:id", updateRoomAvailability);
 
-router.put("/:id", verifyAuth, updateRoom);
+router.put("/:id", updateRoom);
 
 //DELETE
-router.delete("/:id/:hotelid", verifyAuth, deleteRoom);
+router.delete("/:id/:hotelid", deleteRoom);
 
 //GET
 router.get("/:id", getRoom);
